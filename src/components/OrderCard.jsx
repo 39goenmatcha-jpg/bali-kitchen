@@ -5,13 +5,12 @@ import { ja } from '../i18n/ja.js'
 import { id as idStrings } from '../i18n/id.js'
 
 const CHANNEL_BADGE = {
-  shopee:    { label: 'Shopee',    cls: 'bg-orange-100 text-orange-700' },
-  tokopedia: { label: 'Tokopedia', cls: 'bg-green-100 text-green-700' },
-  tiktok:    { label: 'TikTok',    cls: 'bg-gray-900 text-white' },
-  grab:      { label: 'Grab',      cls: 'bg-green-100 text-green-700' },
-  gojek:     { label: 'Gojek',     cls: 'bg-green-100 text-green-700' },
-  cafe:      { label: 'Cafe',      cls: 'bg-yellow-100 text-yellow-800' },
-  direct:    { label: '直販',       cls: 'bg-gray-100 text-gray-700' },
+  stores:        { label: 'STORES',      cls: 'bg-blue-100 text-blue-700' },
+  salon:         { label: 'サロン生',    cls: 'bg-purple-100 text-purple-700' },
+  bsw:           { label: 'BSW生',       cls: 'bg-pink-100 text-pink-700' },
+  center_south:  { label: 'センター南',  cls: 'bg-yellow-100 text-yellow-800' },
+  center_north:  { label: 'センター北',  cls: 'bg-orange-100 text-orange-700' },
+  seijo:         { label: '成城学園前',  cls: 'bg-green-100 text-green-700' },
 }
 
 export function OrderCard({ order, onCompleteDelivery, completing }) {

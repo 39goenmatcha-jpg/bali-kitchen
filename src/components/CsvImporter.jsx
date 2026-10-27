@@ -17,61 +17,25 @@ function parseCsvRows(csv) {
   })
 }
 
-export function parseShopeeCSV(csv) {
+export function parseStoresCSV(csv) {
   return parseCsvRows(csv).map(row => ({
-    source: 'shopee',
+    source: 'stores',
     requiresLabel: true,
     status: 'pending',
-    buyerName: row['購入者名'] || row['Buyer Name'] || '',
-    buyerAddress: row['住所'] || row['Address'] || '',
-    buyerPhone: row['電話番号'] || row['Phone'] || '',
+    buyerName: row['お名前'] || row['購入者名'] || '',
+    buyerAddress: row['お届け先住所'] || row['住所'] || '',
+    buyerPhone: row['電話番号'] || '',
     items: [{
-      name: row['商品名'] || row['Product Name'] || '',
-      qty: Number(row['数量'] || row['Qty'] || 1),
-      price: Number(row['単価'] || row['Price'] || 0),
+      name: row['商品名'] || '',
+      qty: Number(row['数量'] || 1),
+      price: Number(row['販売価格'] || row['単価'] || 0),
     }],
-    externalOrderId: row['注文番号'] || row['Order ID'] || '',
-  }))
-}
-
-export function parseTokopediaCSV(csv) {
-  return parseCsvRows(csv).map(row => ({
-    source: 'tokopedia',
-    requiresLabel: true,
-    status: 'pending',
-    buyerName: row['Nama Pembeli'] || row['購入者名'] || '',
-    buyerAddress: row['Alamat'] || row['住所'] || '',
-    buyerPhone: row['No. Telepon'] || row['電話番号'] || '',
-    items: [{
-      name: row['Nama Produk'] || row['商品名'] || '',
-      qty: Number(row['Jumlah'] || row['数量'] || 1),
-      price: Number(row['Harga'] || row['単価'] || 0),
-    }],
-    externalOrderId: row['No. Invoice'] || row['注文番号'] || '',
-  }))
-}
-
-export function parseTiktokCSV(csv) {
-  return parseCsvRows(csv).map(row => ({
-    source: 'tiktok',
-    requiresLabel: true,
-    status: 'pending',
-    buyerName: row['Recipient'] || row['購入者名'] || '',
-    buyerAddress: row['Shipping Address'] || row['住所'] || '',
-    buyerPhone: row['Phone Number'] || row['電話番号'] || '',
-    items: [{
-      name: row['Product Name'] || row['商品名'] || '',
-      qty: Number(row['Quantity'] || row['数量'] || 1),
-      price: Number(row['Unit Price'] || row['単価'] || 0),
-    }],
-    externalOrderId: row['Order ID'] || row['注文番号'] || '',
+    externalOrderId: row['注文番号'] || '',
   }))
 }
 
 const PARSERS = {
-  shopee: parseShopeeCSV,
-  tokopedia: parseTokopediaCSV,
-  tiktok: parseTiktokCSV,
+  stores: parseStoresCSV,
 }
 
 // --- コンポーネント ---
@@ -109,9 +73,7 @@ export function CsvImporter({ onImported }) {
         onChange={e => setSource(e.target.value)}
         className="border rounded px-2 py-1 text-sm"
       >
-        <option value="shopee">Shopee</option>
-        <option value="tokopedia">Tokopedia</option>
-        <option value="tiktok">TikTok Shop</option>
+        <option value="stores">STORES</option>
       </select>
       <label className="cursor-pointer bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700">
         {t.importCsv}
