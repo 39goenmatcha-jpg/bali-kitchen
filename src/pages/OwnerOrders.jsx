@@ -10,13 +10,13 @@ import { ja } from '../i18n/ja.js'
 import { id as idStrings } from '../i18n/id.js'
 
 const CHANNEL_LABELS = {
-  stores: 'STORES', salon: 'サロン生', bsw: 'BSW生',
-  center_south: 'センター南', center_north: 'センター北', seijo: '成城学園前',
+  shopee: 'Shopee', tokopedia: 'Tokopedia', tiktok: 'TikTok',
+  grab: 'Grab', gojek: 'Gojek', cafe: 'Cafe', direct: '直販',
 }
-const DIRECT_CHANNELS = ['stores', 'salon', 'bsw', 'center_south', 'center_north', 'seijo']
+const DIRECT_CHANNELS = ['grab', 'gojek', 'cafe', 'direct']
 
 const EMPTY_FORM = {
-  source: 'stores', buyerName: '', buyerAddress: '', buyerPhone: '',
+  source: 'grab', buyerName: '', buyerAddress: '', buyerPhone: '',
   productId: '', qty: 1,
 }
 

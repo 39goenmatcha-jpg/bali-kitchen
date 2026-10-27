@@ -22,7 +22,7 @@ export default function OwnerDashboard() {
       {/* ヘッダー */}
       <header className="bg-white shadow-sm">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-          <h1 className="text-lg font-bold text-green-700">🌿 GOOEN酵素</h1>
+          <h1 className="text-lg font-bold text-green-700">🍵 Bali Matcha</h1>
           <div className="flex items-center gap-3">
             <LanguageToggle />
             <nav className="flex gap-2 text-sm">
